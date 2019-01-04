@@ -1,0 +1,1 @@
+This is a simple example how to use Symfony 4 + DDD
