@@ -20,5 +20,5 @@ RUN sed -i -e "s/pm.start_servers = 2/pm.start_servers = 10/g" /usr/local/etc/ph
 RUN sed -i -e "s/pm.min_spare_servers = 1/pm.min_spare_servers = 10/g" /usr/local/etc/php-fpm.d/www.conf
 RUN sed -i -e "s/pm.max_spare_servers = 3/pm.max_spare_servers = 20/g" /usr/local/etc/php-fpm.d/www.conf
 
-WORKDIR /projects
+WORKDIR /bohdanblog.loc
 EXPOSE 9000
