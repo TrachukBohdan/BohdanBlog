@@ -8,5 +8,7 @@ Value Objects Like a Pro - https://hackernoon.com/value-objects-like-a-pro-f1bfc
 DDD Projects:
 
 https://github.com/dddinphp/last-wishes
+
 https://github.com/codeliner/php-ddd-cargo-sample
+
 https://github.com/prooph/proophessor-do
