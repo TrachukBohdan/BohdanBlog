@@ -13,4 +13,10 @@ interface AdminCollectionInterface
      * @return array
      */
     public function all(): array;
+
+    /**
+     * @param AdminEmail $adminEmail
+     * @return mixed
+     */
+    public function findAdminByEmail(AdminEmail $adminEmail): ?Admin;
 }

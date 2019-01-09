@@ -4,6 +4,7 @@ namespace Infrastructure\Repository;
 
 use Domain\Admin\Admin;
 use Domain\Admin\AdminCollectionInterface;
+use Domain\Admin\AdminEmail;
 
 class InMemoryAdminRepository implements AdminCollectionInterface
 {
@@ -24,5 +25,20 @@ class InMemoryAdminRepository implements AdminCollectionInterface
     public function all(): array
     {
         return $this->adminCollection;
+    }
+
+    /**
+     * @param AdminEmail $adminEmail
+     * @return mixed
+     */
+    public function findAdminByEmail(AdminEmail $adminEmail): ?Admin
+    {
+        foreach ($this->adminCollection as $admin) {
+            if ($adminEmail->sameValueAs($admin->email())) {
+                return $admin;
+            }
+        }
+
+        return null;
     }
 }

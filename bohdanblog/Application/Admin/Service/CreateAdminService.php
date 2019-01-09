@@ -5,6 +5,7 @@ namespace Application\Admin\Service;
 use Application\Admin\DTO\CreateAdminDTO;
 use Application\ObjectPresenterInterface;
 use Domain\Admin\Admin;
+use Domain\Admin\AdminAlreadyExistsException;
 use Domain\Admin\AdminCollectionInterface;
 use Domain\Admin\AdminEmail;
 use Domain\Admin\AdminId;
@@ -46,6 +47,12 @@ class CreateAdminService
      */
     public function execute(CreateAdminDTO $createAdminDTO)
     {
+        $admin = $this->adminCollection->findAdminByEmail(AdminEmail::createFromString($createAdminDTO->email()));
+
+        if (null == $admin) {
+            throw new AdminAlreadyExistsException('Admin with this email already exists');
+        }
+
         $admin = Admin::createAdminWithData(
             AdminId::generate(),
             AdminEmail::createFromString($createAdminDTO->email()),
