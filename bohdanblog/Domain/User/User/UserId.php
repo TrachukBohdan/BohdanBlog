@@ -1,12 +1,13 @@
 <?php
 
-namespace Domain\Admin;
+namespace Domain\User\User;
 
+use Domain\IdentityValueObjectInterface;
 use Domain\ValueObjectInterface;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
-final class AdminId implements ValueObjectInterface
+final class UserId implements IdentityValueObjectInterface
 {
     /**
      * @var UuidInterface
@@ -14,19 +15,19 @@ final class AdminId implements ValueObjectInterface
     private $uuid;
 
     /**
-     * @return AdminId
+     * @return UserId
      * @throws \Exception
      */
-    public static function generate(): AdminId
+    public static function generate(): UserId
     {
         return new self(Uuid::uuid4());
     }
 
     /**
      * @param string $userId
-     * @return AdminId
+     * @return UserId
      */
-    public static function fromString(string $userId): AdminId
+    public static function fromString(string $userId): UserId
     {
         return new self(Uuid::fromString($userId));
     }
@@ -40,10 +41,7 @@ final class AdminId implements ValueObjectInterface
         $this->uuid = $uuid;
     }
 
-    /**
-     * @return string
-     */
-    public function toString(): string
+    public function __toString(): string
     {
         return $this->uuid->toString();
     }

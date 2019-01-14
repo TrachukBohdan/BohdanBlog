@@ -16,14 +16,20 @@ doctrine:
             collate: utf8mb4_unicode_ci
 
         url: '%env(resolve:DATABASE_URL)%'
+        types:
+            UserId: Infrastructure\Types\DoctrineUserId
     orm:
         auto_generate_proxy_classes: true
         naming_strategy: doctrine.orm.naming_strategy.underscore
-        auto_mapping: true
-#        mappings:
-#            App:
-#                is_bundle: false
-#                type: annotation
-#                dir: '%kernel.project_dir%/src/Entity'
-#                prefix: 'App\Entity'
-#                alias: App
+        auto_mapping: false
+        mappings:
+            Domain\User\User:
+                type: yml
+                is_bundle: false
+                prefix: Domain\User\User
+                dir: '%kernel.project_dir%/src/Mapping/User/User'
+            Domain\User\Admin:
+                type: yml
+                is_bundle: false
+                prefix: Domain\User\Admin
+                dir: '%kernel.project_dir%/src/Mapping/User/Admin'

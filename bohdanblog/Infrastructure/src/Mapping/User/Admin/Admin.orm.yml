@@ -1,0 +1,2 @@
+Domain\User\Admin\Admin:
+  type: entity

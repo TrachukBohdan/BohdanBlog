@@ -1,0 +1,4 @@
+Domain\User\User\UserEmail:
+  type: embeddable
+  fields:
+    email: { type: string }

@@ -3,7 +3,7 @@
 namespace Infrastructure\Presenter\Admin;
 
 use Application\ObjectPresenterInterface;
-use Domain\Admin\Admin;
+use Domain\Admin\User;
 
 class ToArrayCreateAdminPresenter implements ObjectPresenterInterface
 {
@@ -14,7 +14,7 @@ class ToArrayCreateAdminPresenter implements ObjectPresenterInterface
      */
     public function present($admin)
     {
-        if (!($admin instanceof Admin)) {
+        if (!($admin instanceof User)) {
             throw new \Exception("expect Admin object");
         }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Domain\Admin;
+namespace Domain\User\User;
 
 use Domain\ValueObjectInterface;
 
@@ -8,7 +8,7 @@ use Domain\ValueObjectInterface;
  * Class Adminemail
  * @package Domain\Admin
  */
-final class AdminEmail implements ValueObjectInterface
+final class UserEmail implements ValueObjectInterface
 {
     /**
      * @var string
@@ -16,7 +16,7 @@ final class AdminEmail implements ValueObjectInterface
     private $email;
 
     /**
-     * Adminemail constructor.
+     * constructor.
      * @param string $email
      */
     private function __construct(string $email)
@@ -26,11 +26,11 @@ final class AdminEmail implements ValueObjectInterface
 
     /**
      * @param string $email
-     * @return AdminEmail
+     * @return UserEmail
      */
-    public static function createFromString(string $email): AdminEmail
+    public static function createFromString(string $email): UserEmail
     {
-        return new AdminEmail($email);
+        return new UserEmail($email);
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace Domain\Admin;
+namespace Domain\User\User;
 
 use Domain\ValueObjectInterface;
 
@@ -8,7 +8,7 @@ use Domain\ValueObjectInterface;
  * Class AdminName
  * @package Domain\Admin
  */
-final class AdminName implements ValueObjectInterface
+final class UserName implements ValueObjectInterface
 {
     /**
      * @var string
@@ -26,11 +26,11 @@ final class AdminName implements ValueObjectInterface
 
     /**
      * @param string $name
-     * @return AdminName
+     * @return UserName
      */
-    public static function createFromString(string $name): AdminName
+    public static function createFromString(string $name): UserName
     {
-        return new AdminName($name);
+        return new UserName($name);
     }
 
     /**
@@ -42,7 +42,7 @@ final class AdminName implements ValueObjectInterface
     }
 
     /**
-     * @param AdminName $object
+     * @param UserName $object
      * @return bool
      */
     public function sameValueAs($object): bool

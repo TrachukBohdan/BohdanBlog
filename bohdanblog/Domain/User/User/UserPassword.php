@@ -1,6 +1,6 @@
 <?php
 
-namespace Domain\Admin;
+namespace Domain\User\User;
 
 use Domain\ValueObjectInterface;
 
@@ -8,7 +8,7 @@ use Domain\ValueObjectInterface;
  * Class AdminPassword
  * @package Domain\Admin
  */
-final class AdminPassword implements ValueObjectInterface
+final class UserPassword implements ValueObjectInterface
 {
     /**
      * @var string
@@ -26,11 +26,11 @@ final class AdminPassword implements ValueObjectInterface
 
     /**
      * @param string $password
-     * @return AdminPassword
+     * @return UserPassword
      */
-    public static function createFromString(string $password): AdminPassword
+    public static function createFromString(string $password): UserPassword
     {
-        return new AdminPassword($password);
+        return new UserPassword($password);
     }
 
     /**

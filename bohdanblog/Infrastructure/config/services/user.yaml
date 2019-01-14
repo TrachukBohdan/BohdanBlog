@@ -1,0 +1,8 @@
+services:
+    user.user_repository:
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments: [Domain\User\User\User]
+        class: Infrastructure\Repository\DoctrineUserRepository
+        public: true
+
+    Domain\User\User\UserCollectionInterface: '@user.user_repository'

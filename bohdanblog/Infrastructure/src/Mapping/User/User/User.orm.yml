@@ -1,0 +1,22 @@
+Domain\User\User\User:
+  type: entity
+  table: users
+  inheritanceType: SINGLE_TABLE
+  discriminatorColumn:
+    name: type
+    type: string
+  discriminatorMap:
+    admin: Domain\User\Admin\Admin
+    user: Domain\User\User\User
+  id:
+    id:
+      column: id
+      type: UserId
+  repositoryClass: Infrastructure\Repository\DoctrineUserRepository
+  embedded:
+    email:
+      class: Domain\User\User\UserEmail
+      columnPrefix: false
+    password:
+      class: Domain\User\User\UserPassword
+      columnPrefix: false
