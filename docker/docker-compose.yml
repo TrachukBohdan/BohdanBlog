@@ -2,40 +2,44 @@ version: "3"
 
 services:
 
-  nginx:
+  blog-nginx:
+    container_name: "blog-nginx"
     image: "nginx"
     build:
       context: "./nginx"
     ports:
-      - "80:80"
+      - "${NGINX_LISTEN_PORT}:80"
     volumes:
       - "./nginx/configs/bohdanblog.loc.conf:/etc/nginx/conf.d/bohdanblog.loc.conf"
       - "./nginx/logs:/var/log/nginx"
       - "../:/bohdanblog.loc"
     depends_on:
-      - "php-fpm"
-  php-fpm:
+      - "blog-php-fpm"
+
+  blog-php-fpm:
+    container_name: "blog-php-fpm"
     image: "php_fpm"
     build:
       context: "./php-fpm"
     volumes:
       - "../:/bohdanblog.loc"
     depends_on:
-      - "mysql"
+      - "blog-mysql"
 
-  mysql:
+  blog-mysql:
+    container_name: "blog-mysql"
     image: "mysql"
     build:
       context: "./mysql"
     environment:
-      MYSQL_DATABASE: "bohdanblog"
-      MYSQL_ROOT_PASSWORD: "secret"
-      MYSQL_USER: "user"
-      MYSQL_PASSWORD: "pass"
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
     volumes:
-      - "mysql-volume:/var/lib/mysql"
+      - "blog-mysql-volume:/var/lib/mysql"
     ports:
-      - "3307:3306"
+      - "${MYSQL_LISTEN_PORT}:3306"
 
 volumes:
-  mysql-volume:
+  blog-mysql-volume:
