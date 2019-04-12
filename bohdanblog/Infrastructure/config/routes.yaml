@@ -1,3 +1,0 @@
-index:
-    path: /
-    controller: Infrastructure\Controller\UserController::index

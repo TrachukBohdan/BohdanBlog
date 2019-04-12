@@ -43,7 +43,7 @@
         "psr-4": {
             "Application\\": "../Application",
             "Domain\\": "../Domain",
-            "Infrastructure\\": "../Infrastructure/src"
+            "Infrastructure\\": "../Infrastructure/backend/src"
         }
     },
     "autoload-dev": {

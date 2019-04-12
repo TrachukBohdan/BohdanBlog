@@ -9,6 +9,7 @@ class UserController
 {
     public function index()
     {
+        die('test');
         $sayHelloToUserService = new SayHelloToUserService();
         return new Response($sayHelloToUserService->execute());
     }
