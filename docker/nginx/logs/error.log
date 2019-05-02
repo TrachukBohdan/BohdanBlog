@@ -1,3 +1,0 @@
-
-2019/01/04 09:56:41 [crit] 1#1: pread() "/etc/nginx/conf.d/bohdanblog.loc.conf" failed (21: Is a directory)
-2019/01/04 09:58:55 [error] 8#8: *2 directory index of "/bohdanblog.loc/" is forbidden, client: 172.18.0.1, server: bohdanblog.loc, request: "GET / HTTP/1.1", host: "bohdanblog.loc"
